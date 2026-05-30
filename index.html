@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Al-Naseem Butcher &mdash; halal butcher on Spital Hill, Sheffield S4</title>
+<meta name="description" content="Al-Naseem Butcher is a halal butcher on Spital Hill in Sheffield S4. Fresh lamb, mutton, goat, chicken and beef, cut at the counter. Visit at 30 Spital Hill." />
+<meta name="theme-color" content="#8B3A3A" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap" />
+
+<style>
+  :root{
+    --paper:    #F2E6D2;   /* butcher paper, warm cream */
+    --kraft:    #E5D3B6;   /* kraft envelope, surface dim */
+    --cream:    #F4E4BC;   /* brief secondary, soft band */
+    --ink:      #2A1A12;   /* dark roast brown-black, body */
+    --ink-2:    #5C4530;   /* walnut, subheads + borders */
+    --ink-3:    #8a7158;   /* muted, captions */
+    --red:      #8B3A3A;   /* brief primary, the chop mark */
+    --red-deep: #5e2424;   /* heading shadow + hover */
+    --mustard:  #C58A3A;   /* halal pill + spotlight spark */
+    --line:     rgba(42,26,18,0.18);
+
+    --display: "Libre Baskerville", Georgia, "Times New Roman", serif;
+    --body:    "Work Sans", system-ui, sans-serif;
+
+    --max:    1180px;
+    --pad-x:  clamp(1.25rem, 4.5vw, 3rem);
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; scroll-padding-top:72px; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{ background:var(--red); color:var(--paper); }
+  a{ color:inherit; }
+  h1,h2,h3{ text-wrap:balance; margin:0; font-family:var(--display); }
+  p{ text-wrap:pretty; hyphens:auto; margin:0; }
+
+  /* paper grain — keeps the brown-paper feel honest */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(92,69,48,0.04) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 70% 60%, rgba(92,69,48,0.05) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 40% 80%, rgba(92,69,48,0.03) 0 1px, transparent 1.5px);
+    background-size: 17px 17px, 23px 23px, 31px 31px;
+    pointer-events:none;
+    z-index:1;
+    mix-blend-mode:multiply;
+    opacity:.55;
+  }
+
+  /* ─── NAV ─────────────────────────────────────────── */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(242,230,210,0.93);
+    backdrop-filter:saturate(140%) blur(8px);
+    -webkit-backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav__inner{
+    max-width:var(--max); margin:0 auto;
+    padding:13px var(--pad-x);
+    display:flex; align-items:center; justify-content:space-between; gap:18px;
+  }
+  .nav__brand{
+    font-family:var(--display); font-weight:700;
+    font-size:1.05rem; letter-spacing:.02em;
+    color:var(--ink);
+    text-decoration:none;
+    display:flex; align-items:center; gap:10px;
+  }
+  .nav__brand .dot{
+    width:9px; height:9px; background:var(--red); border-radius:50%;
+    box-shadow:0 0 0 3px rgba(139,58,58,0.18);
+  }
+  .nav__links{
+    display:flex; gap:22px;
+    font-size:.92rem; letter-spacing:.04em; text-transform:uppercase;
+  }
+  .nav__links a{
+    text-decoration:none; color:var(--ink-2);
+    padding:6px 0; position:relative;
+  }
+  .nav__links a::after{
+    content:""; position:absolute; left:0; right:100%; bottom:2px;
+    height:1px; background:var(--red);
+    transition:right .25s ease;
+  }
+  .nav__links a:hover{ color:var(--ink); }
+  .nav__links a:hover::after{ right:0; }
+  @media (max-width:680px){ .nav__links{ display:none; } }
+
+  /* ─── HERO ─────────────────────────────────────────── */
+  .hero{
+    position:relative; isolation:isolate;
+    padding: clamp(2.5rem,8vw,5.5rem) var(--pad-x) clamp(2rem,6vw,4rem);
+    max-width:var(--max); margin:0 auto;
+  }
+  .hero__eyebrow{
+    font-size:.8rem; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--red); font-weight:600;
+    display:flex; align-items:center; gap:14px;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .hero__eyebrow .rule{ flex:1; height:1px; background:var(--red); opacity:.45; max-width:120px; }
+  .hero__title{
+    font-family:var(--display); font-weight:700;
+    font-size: clamp(3.6rem, 12.5vw, 9.2rem);
+    line-height:.88;
+    letter-spacing:-0.035em;
+    color:var(--ink);
+    text-shadow: 0.04em 0.04em 0 var(--cream);
+  }
+  .hero__title em{
+    display:block;
+    font-style:italic; font-weight:400;
+    color:var(--red);
+    font-size: clamp(1.6rem, 4.5vw, 3.3rem);
+    letter-spacing:0;
+    margin-top:.4em;
+    text-shadow:none;
+  }
+  .hero__address{
+    margin-top: clamp(1.8rem, 4vw, 2.6rem);
+    display:grid; gap:.4rem;
+    font-family:var(--display);
+    font-size:1.1rem;
+    color:var(--ink-2);
+  }
+  .hero__address strong{ color:var(--ink); font-weight:700; }
+  .hero__actions{
+    margin-top:1.6rem;
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 22px;
+    font-family:var(--body); font-weight:600; font-size:.95rem;
+    letter-spacing:.05em; text-transform:uppercase;
+    text-decoration:none;
+    border:1.5px solid var(--ink);
+    background:var(--ink); color:var(--paper);
+    transition:background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .btn:hover{ background:var(--red); border-color:var(--red); transform:translateY(-1px); }
+  .btn--ghost{
+    background:transparent; color:var(--ink);
+  }
+  .btn--ghost:hover{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+  .btn .arrow{ transition:transform .2s ease; }
+  .btn:hover .arrow{ transform:translateX(3px); }
+
+  /* halal pill */
+  .pill{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:5px 12px; border-radius:999px;
+    font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; font-weight:600;
+    background:var(--mustard); color:#3a2810;
+  }
+  .pill::before{
+    content:""; width:6px; height:6px; border-radius:50%;
+    background:#3a2810;
+  }
+
+  /* ─── MARQUEE ─────────────────────────────────────── */
+  .marquee{
+    background:var(--red); color:var(--paper);
+    overflow:hidden;
+    border-top:1px solid var(--red-deep);
+    border-bottom:1px solid var(--red-deep);
+    padding:14px 0;
+    position:relative;
+  }
+  .marquee__track{
+    display:flex; gap:3rem;
+    white-space:nowrap;
+    animation: scroll 38s linear infinite;
+    font-family:var(--display); font-style:italic;
+    font-size:1.15rem;
+    will-change:transform;
+  }
+  .marquee__track span{ display:inline-flex; align-items:center; gap:3rem; }
+  .marquee__track span::after{
+    content:"✦"; color:var(--cream); font-style:normal;
+  }
+  @keyframes scroll{ to{ transform:translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce){
+    .marquee__track{ animation:none; justify-content:center; flex-wrap:wrap; }
+  }
+
+  /* ─── SECTIONS ────────────────────────────────────── */
+  .section{ position:relative; z-index:2; }
+  .section__inner{
+    max-width:var(--max); margin:0 auto;
+    padding: clamp(3.5rem, 8vw, 6rem) var(--pad-x);
+  }
+  .section--cream{ background:var(--cream); }
+  .section--kraft{ background:var(--kraft); }
+
+  .section__eyebrow{
+    font-size:.78rem; letter-spacing:.24em; text-transform:uppercase;
+    color:var(--red); font-weight:600;
+    margin-bottom:.9rem;
+  }
+  .section__title{
+    font-family:var(--display); font-weight:700;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height:1.02; letter-spacing:-0.02em;
+    color:var(--ink);
+  }
+  .section__title em{ font-style:italic; color:var(--red); }
+  .section__lead{
+    margin-top:1.3rem;
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    line-height:1.6;
+    color:var(--ink-2);
+    max-width:46ch;
+  }
+
+  /* ─── ABOUT ──────────────────────────────────────── */
+  .about{
+    display:grid; grid-template-columns: 1fr; gap: clamp(2rem,5vw,4rem);
+  }
+  @media (min-width:880px){
+    .about{ grid-template-columns: 1.05fr .95fr; align-items:start; }
+  }
+  .about__body p + p{ margin-top:1.1rem; }
+  .about__body{
+    font-family:var(--display);
+    font-size:1.18rem;
+    line-height:1.65;
+    color:var(--ink);
+  }
+  .about__body em{ color:var(--red); font-style:italic; }
+  .about__notes{
+    border-left:3px solid var(--red);
+    padding:.4rem 0 .4rem 1.4rem;
+    display:grid; gap:1.1rem;
+  }
+  .about__notes h3{
+    font-family:var(--body); font-weight:600;
+    font-size:.85rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--red);
+    margin-bottom:.3rem;
+  }
+  .about__notes p{
+    font-size:.97rem; color:var(--ink-2); line-height:1.5;
+  }
+
+  /* ─── COUNTER ────────────────────────────────────── */
+  .counter__grid{
+    margin-top: clamp(2rem,4vw,3rem);
+    display:grid; gap:1px;
+    background:var(--ink-2);
+    border:1px solid var(--ink-2);
+  }
+  @media (min-width:640px){ .counter__grid{ grid-template-columns:1fr 1fr; } }
+  @media (min-width:980px){ .counter__grid{ grid-template-columns:repeat(3,1fr); } }
+  .counter__card{
+    background:var(--paper);
+    padding: clamp(1.5rem,3vw,2.2rem);
+    display:flex; flex-direction:column; gap:.7rem;
+    position:relative;
+  }
+  .counter__card .num{
+    font-family:var(--display); font-style:italic;
+    color:var(--red); font-size:.95rem;
+    letter-spacing:.04em;
+  }
+  .counter__card h3{
+    font-family:var(--display);
+    font-size: clamp(1.6rem, 2.5vw, 2.05rem);
+    font-weight:700; letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .counter__card p{
+    font-size:.98rem; color:var(--ink-2); line-height:1.5;
+  }
+  .counter__card .tag{
+    margin-top:auto;
+    font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+    font-weight:600; color:var(--red);
+    padding-top:.9rem;
+    border-top:1px dashed var(--line);
+  }
+  .counter__note{
+    margin-top:1.6rem;
+    font-family:var(--display); font-style:italic;
+    color:var(--ink-2); font-size:1.02rem;
+    text-align:center;
+  }
+
+  /* ─── GALLERY ────────────────────────────────────── */
+  .gallery__grid{
+    margin-top: clamp(2rem,4vw,3rem);
+    display:grid; gap:18px;
+  }
+  @media (min-width:640px){ .gallery__grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:980px){ .gallery__grid{ grid-template-columns:repeat(4,1fr); } }
+  .gallery__tile{
+    aspect-ratio:3/4;
+    background:
+      repeating-linear-gradient(135deg,
+        var(--kraft) 0 14px,
+        transparent 14px 28px),
+      var(--paper);
+    border:1px solid var(--line);
+    position:relative;
+    display:flex; align-items:flex-end; padding:18px;
+    overflow:hidden;
+  }
+  .gallery__tile::before{
+    content:"";
+    position:absolute; inset:auto auto 0 0;
+    width:38px; height:38px;
+    background:var(--red);
+    clip-path:polygon(0 0, 100% 100%, 0 100%);
+  }
+  .gallery__tile span{
+    font-family:var(--display); font-style:italic;
+    font-size:.92rem; color:var(--ink-2);
+    background:var(--paper);
+    padding:4px 10px;
+    border:1px solid var(--line);
+  }
+  .gallery__note{
+    margin-top:1.6rem;
+    font-family:var(--display); font-style:italic;
+    color:var(--ink-2); font-size:1.02rem;
+  }
+
+  /* ─── CONTACT ────────────────────────────────────── */
+  .contact{
+    display:grid; gap: clamp(2rem,4vw,3rem);
+  }
+  @media (min-width:880px){
+    .contact{ grid-template-columns: .9fr 1.1fr; align-items:start; }
+  }
+  .contact__block{
+    display:grid; gap:1.4rem;
+    font-size:1rem;
+  }
+  .contact__row{
+    display:grid; gap:.25rem;
+    padding-bottom:1.2rem;
+    border-bottom:1px solid var(--line);
+  }
+  .contact__row:last-child{ border-bottom:none; }
+  .contact__row .lbl{
+    font-family:var(--body); font-weight:600;
+    font-size:.75rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--red);
+  }
+  .contact__row .val{
+    font-family:var(--display);
+    font-size:1.15rem; color:var(--ink);
+    line-height:1.4;
+  }
+  .contact__row .val a{ text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; }
+  .contact__row .val.muted{ color:var(--ink-3); font-style:italic; font-size:1.02rem; }
+  .contact__map{
+    width:100%;
+    height:clamp(320px,42vw,460px);
+    border:1.5px solid var(--ink);
+    filter:sepia(.12) saturate(.92) contrast(1.04);
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────── */
+  .footer{
+    background:var(--ink);
+    color:var(--paper);
+    padding: clamp(2.5rem,5vw,4rem) var(--pad-x) 2rem;
+    position:relative; z-index:2;
+  }
+  .footer__inner{
+    max-width:var(--max); margin:0 auto;
+    display:grid; gap:2rem;
+  }
+  @media (min-width:760px){
+    .footer__inner{ grid-template-columns: 1.4fr 1fr; align-items:end; }
+  }
+  .footer__mark{
+    font-family:var(--display); font-weight:700;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height:1;
+    letter-spacing:-0.02em;
+  }
+  .footer__mark em{ font-style:italic; color:var(--mustard); font-weight:400; display:block; font-size:.45em; letter-spacing:.04em; margin-top:.4em; }
+  .footer__meta{
+    font-size:.92rem; line-height:1.6;
+    color:rgba(242,230,210,0.72);
+  }
+  .footer__meta strong{ color:var(--paper); font-weight:600; }
+  .footer__meta a{ color:var(--paper); text-decoration:underline; text-decoration-color:rgba(242,230,210,0.4); text-underline-offset:3px; }
+  .footer__rule{
+    height:1px; background:rgba(242,230,210,0.18);
+    margin: clamp(2rem,3.5vw,2.6rem) 0 1.2rem;
+  }
+  .footer__bottom{
+    font-size:.78rem; letter-spacing:.08em;
+    color:rgba(242,230,210,0.55);
+    display:flex; gap:1rem; flex-wrap:wrap; justify-content:space-between;
+  }
+
+  /* ─── SCROLL REVEALS (CSS-only, no JS) ────────────── */
+  @supports (animation-timeline: view()){
+    .reveal{
+      animation: rise both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+    @keyframes rise{
+      from{ opacity:0; transform:translateY(28px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a href="#home" class="nav__brand"><span class="dot"></span>Al-Naseem &middot; Butcher</a>
+    <nav class="nav__links">
+      <a href="#about">About</a>
+      <a href="#counter">Counter</a>
+      <a href="#gallery">Shop</a>
+      <a href="#contact">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__eyebrow">
+      <span class="pill">Halal</span>
+      <span class="rule"></span>
+      <span>Spital Hill &middot; Sheffield S4</span>
+    </div>
+    <h1 class="hero__title">
+      Al-Naseem
+      <em>the neighbourhood halal butcher.</em>
+    </h1>
+    <address class="hero__address">
+      <strong>30 Spital Hill, Sheffield&nbsp;S4&nbsp;7LG</strong>
+      <span>Walk in. Ask at the counter. Take it home.</span>
+    </address>
+    <div class="hero__actions">
+      <a href="#contact" class="btn">Visit the counter <span class="arrow">&rarr;</span></a>
+      <a href="#counter" class="btn btn--ghost">What&rsquo;s on the block</a>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Lamb</span><span>Mutton</span><span>Goat</span><span>Chicken</span><span>Beef</span><span>Mince &amp; cuts</span><span>Cut at the counter</span><span>Halal</span><span>Spital Hill, Sheffield</span>
+      <span>Lamb</span><span>Mutton</span><span>Goat</span><span>Chicken</span><span>Beef</span><span>Mince &amp; cuts</span><span>Cut at the counter</span><span>Halal</span><span>Spital Hill, Sheffield</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section__inner">
+      <div class="reveal" style="margin-bottom:clamp(2rem,4vw,3rem);">
+        <p class="section__eyebrow">About the shop</p>
+        <h2 class="section__title">A small halal butcher on a <em>big high street.</em></h2>
+      </div>
+      <div class="about">
+        <div class="about__body reveal">
+          <p>Spital Hill is one of Sheffield&rsquo;s most lived-in streets &mdash; a stretch of independent grocers, takeaways and family shops serving Burngreave and the streets that climb up from the city centre. <em>Al-Naseem Butcher</em> has its counter here, at number 30.</p>
+          <p>The job is the same as it&rsquo;s always been: source fresh meat, cut it properly, sell it across the counter to people who&rsquo;ll cook it for their families that night. Lamb for the slow-cooker. Goat for the curry. Chicken for the karahi. Mince for the kebab on Friday.</p>
+          <p>If you live in S4 and you want to know what&rsquo;s in your meat &mdash; drop in. The counter is the answer.</p>
+        </div>
+        <aside class="about__notes reveal">
+          <div>
+            <h3>Halal</h3>
+            <p>All cuts sourced and prepared to halal standards. Ask at the counter for source details on any specific cut.</p>
+          </div>
+          <div>
+            <h3>Food hygiene</h3>
+            <p>Registered with Sheffield City Council. Most recent <a href="https://ratings.food.gov.uk/" target="_blank" rel="noopener">FSA hygiene rating</a> inspected January 2026.</p>
+          </div>
+          <div>
+            <h3>Cut to order</h3>
+            <p>Tell the butcher what you&rsquo;re cooking &mdash; he&rsquo;ll cut for it. Mince, chops, diced, on the bone, off the bone.</p>
+          </div>
+          <div>
+            <h3>Walk-in shop</h3>
+            <p>Not online. Not a delivery service. A real shop on the high street, the way a butcher should be.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTER -->
+  <section class="section section--cream" id="counter">
+    <div class="section__inner">
+      <div class="reveal" style="margin-bottom:clamp(1.5rem,3vw,2rem);">
+        <p class="section__eyebrow">What&rsquo;s at the counter</p>
+        <h2 class="section__title">Six things we cut, <em>every day.</em></h2>
+        <p class="section__lead">No fixed menu &mdash; what&rsquo;s on the block depends on the day. Here&rsquo;s what you&rsquo;ll usually find. Ask the butcher for cuts, quantities and what&rsquo;s freshest in.</p>
+      </div>
+
+      <div class="counter__grid reveal">
+        <article class="counter__card">
+          <span class="num">No. 01</span>
+          <h3>Lamb</h3>
+          <p>Whole cuts, chops, leg, shoulder, neck, mince. Cut to order &mdash; tell the butcher what it&rsquo;s for.</p>
+          <span class="tag">Halal &middot; Cut on request</span>
+        </article>
+        <article class="counter__card">
+          <span class="num">No. 02</span>
+          <h3>Mutton</h3>
+          <p>Older flavour for slow cooking &mdash; curries, stews, biryani. On the bone or boneless, your call.</p>
+          <span class="tag">Halal &middot; On request</span>
+        </article>
+        <article class="counter__card">
+          <span class="num">No. 03</span>
+          <h3>Goat</h3>
+          <p>For curry goat, paya, slow braises. Diced, on the bone, or whole quarters when available.</p>
+          <span class="tag">Halal &middot; Whole or diced</span>
+        </article>
+        <article class="counter__card">
+          <span class="num">No. 04</span>
+          <h3>Chicken</h3>
+          <p>Whole birds, jointed pieces, breast fillets, thigh, wings, drumsticks. Skin-on or off.</p>
+          <span class="tag">Halal &middot; Jointed to order</span>
+        </article>
+        <article class="counter__card">
+          <span class="num">No. 05</span>
+          <h3>Beef</h3>
+          <p>Diced for curry, slow-cook joints, mince, on the bone. Tell the butcher what you&rsquo;re making.</p>
+          <span class="tag">Halal &middot; Cut on request</span>
+        </article>
+        <article class="counter__card">
+          <span class="num">No. 06</span>
+          <h3>Mince &amp; cuts</h3>
+          <p>Freshly minced &mdash; lamb, beef, mutton, or chicken. Kebab cuts, kofta cuts, anything for the grill.</p>
+          <span class="tag">Halal &middot; Minced fresh</span>
+        </article>
+      </div>
+
+      <p class="counter__note">&mdash; Ask at the counter. If we don&rsquo;t have it today, we&rsquo;ll tell you when we will. &mdash;</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section section--kraft" id="gallery">
+    <div class="section__inner">
+      <div class="reveal" style="margin-bottom:clamp(1.5rem,3vw,2rem);">
+        <p class="section__eyebrow">The shop</p>
+        <h2 class="section__title">Photos of the shop, <em>coming soon.</em></h2>
+        <p class="section__lead">Until the camera comes round, you&rsquo;ll have to take our word for it &mdash; or drop in and see what&rsquo;s on the block today. Number 30, Spital Hill.</p>
+      </div>
+      <div class="gallery__grid reveal">
+        <figure class="gallery__tile"><span>The counter</span></figure>
+        <figure class="gallery__tile"><span>The cuts</span></figure>
+        <figure class="gallery__tile"><span>The shopfront</span></figure>
+        <figure class="gallery__tile"><span>Spital Hill</span></figure>
+      </div>
+      <p class="gallery__note">&mdash; If you&rsquo;ve photographed the shop and would like to share, ask at the counter. &mdash;</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section__inner">
+      <div class="reveal" style="margin-bottom:clamp(2rem,4vw,3rem);">
+        <p class="section__eyebrow">Visit</p>
+        <h2 class="section__title">Number 30, <em>Spital Hill.</em></h2>
+        <p class="section__lead">A short walk up from the Wicker and the cathedral &mdash; on the right-hand side as you climb the hill.</p>
+      </div>
+      <div class="contact">
+        <div class="contact__block reveal">
+          <div class="contact__row">
+            <span class="lbl">Address</span>
+            <span class="val">Al-Naseem Butcher<br />30 Spital Hill<br />Sheffield S4&nbsp;7LG</span>
+          </div>
+          <div class="contact__row">
+            <span class="lbl">Opening hours</span>
+            <span class="val muted">Hours posted on the door &mdash; check before a special trip.</span>
+          </div>
+          <div class="contact__row">
+            <span class="lbl">Phone</span>
+            <span class="val muted">Number coming soon &mdash; for now, walk in.</span>
+          </div>
+          <div class="contact__row">
+            <span class="lbl">Hygiene</span>
+            <span class="val">Registered with Sheffield City Council. <a href="https://ratings.food.gov.uk/" target="_blank" rel="noopener">FSA register &rarr;</a></span>
+          </div>
+          <div class="contact__row">
+            <span class="lbl">Getting here</span>
+            <span class="val">5&nbsp;min walk from Sheffield Cathedral tram stop. Bus routes&nbsp;7, 8, 75, 76 stop on Spital Hill.</span>
+          </div>
+        </div>
+        <iframe
+          class="contact__map reveal"
+          title="Map showing 30 Spital Hill, Sheffield S4 7LG"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=30+Spital+Hill,+Sheffield+S4+7LG&output=embed"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__mark">
+      Al-Naseem
+      <em>halal butcher &middot; Spital Hill &middot; Sheffield S4</em>
+    </div>
+    <div class="footer__meta">
+      <strong>30 Spital Hill, Sheffield S4&nbsp;7LG</strong><br />
+      Burngreave &middot; South Yorkshire<br />
+      A neighbourhood shop. Walk in.
+    </div>
+  </div>
+  <div class="footer__rule"></div>
+  <div class="footer__inner footer__bottom">
+    <span>&copy; Al-Naseem Butcher &middot; Sheffield</span>
+    <span>Site built for the shop &mdash; not affiliated with delivery platforms.</span>
+  </div>
+</footer>
+
+</body>
+</html>
